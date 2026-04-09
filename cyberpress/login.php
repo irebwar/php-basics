@@ -5,6 +5,15 @@
         <div class="card shadow border-0 rounded-3">
             <div class="card-header bg-dark text-white text-center py-3">
                 <h4 class="mb-0"><i class="bi bi-person-lock"></i>چوونەژورەوە</h4>
+                <?php if (isset($_SESSION['error'])) :?>
+                    <div class="alert alert-danger text-center" role="alert">
+                        <i class="bi bi-exclamation-triangle"></i>
+                        <?php
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                        ?>
+                    </div>
+                <?php endif; ?>
             </div>
             <div class="card-body p-4">
                 <form action="login_process.php" method="POST">

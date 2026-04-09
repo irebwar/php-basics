@@ -1,4 +1,7 @@
-<?php require_once 'includes/header.php'; ?>
+<?php
+require_once '../includes/header.php';
+require_once 'includes/auth_check.php';
+?>
 
 <div class="row">
     <div class="col-md-3 mb-4">
@@ -41,4 +44,4 @@
     </div>
 </div>
 
-<?php require_once 'includes/footer.php'; ?>
+<?php require_once '../includes/footer.php'; ?>
