@@ -12,7 +12,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
 
-    <?php $base_url = "http://localhost/cyberpress/"; ?>
+    <?php
+        $host = $_SERVER['HTTP_HOST'];
+        if (php_sapi_name() === 'cli-server' || strpos($host, ':8000') !== false) {
+            $base_url = "http://" . $host . '/';
+        } else {
+            $base_url = "http://localhost/php-basics/cyberpress/";
+        }
+    ?>
     <link rel="stylesheet" href="<?php echo $base_url; ?>assets/css/style.css">
 </head>
 <body class="bg-light">

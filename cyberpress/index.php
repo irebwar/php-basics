@@ -8,7 +8,7 @@ require_once 'includes/header.php';
             <h2 class="mb-4 border-bottom pb-2">دوواین بابەتەکان</h2>
 
             <div class="row">
-                <div class="col-mb-6 mb-4">
+                <div class="col-12 mb-4">
                     <div class="card post-card h-100 shadow-sm">
                         <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085" alt="">
                         <div class="card-body">

@@ -1,7 +1,7 @@
 <?php
 
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'cyberpress');
+define('DB_NAME', 'cyberpress_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 
