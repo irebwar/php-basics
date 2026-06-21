@@ -15,7 +15,6 @@ $options = [
 
 try {
     $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-    echo "Database connection successful!";
 } catch (\PDOException $e) {
     die('Database connection failed: ' . $e->getMessage());
 }
