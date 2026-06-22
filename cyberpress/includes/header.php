@@ -40,10 +40,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_url; ?>index.php">سەرەکی</a>
+                        <a class="nav-link" href="<?php echo $base_url; ?>index.php"><i class="bi bi-house-door"> </i>سەرەکی</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="<?php echo $base_url; ?>login.php">چونەژورەوە</a>
+                        <a class="nav-link" href="<?php echo $base_url; ?>about.php"><i class="bi bi-info-circle"> </i>دەربارە</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $base_url; ?>contact.php"><i class="bi bi-envelope"> </i>پەیوەندی</a>
                     </li>
                 </ul>
             </div>
