@@ -1,5 +1,4 @@
 <?php
-
 require_once 'includes/db.php';
 
 $msg = '';
@@ -12,8 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $message = trim($_POST['message']);
 
     if (empty($name) || empty($email) || empty($message)) {
-        $msg = 'Please fill in all fields.';
-        $msgClass = 'alert-danger';
+        $msg = "تکایە هەموو خانە پێویستەکان پڕبکەرەوە.";
+        $msgClass = "alert-danger";
     } else {
         try {
             $stmt = $pdo->prepare("INSERT INTO messages (name, email, subject, message) VALUES (:name, :email, :subject, :message)");
@@ -23,47 +22,57 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ':subject' => $subject,
                 ':message' => $message
             ]);
-
-            $msg = 'Your message has been sent successfully!';
-            $msgClass = 'alert-success';
+            
+            $msg = "سوپاس! پەیامەکەت بە سەرکەوتوویی نێردرا. بەمزووانە وەڵامت دەدەینەوە.";
+            $msgClass = "alert-success";
+            
         } catch (PDOException $e) {
-            $msg = 'Error: ' . $e->getMessage();
-            $msgClass = 'alert-danger';
+            $msg = "کێشەیەک لە سێرڤەر ڕوویدا، تکایە دواتر هەوڵبدەرەوە.";
+            $msgClass = "alert-danger";
         }
     }
 }
 
-require_once 'includes/header.php'; ?>
+require_once 'includes/header.php';
+?>
 
 <div class="row justify-content-center my-5">
     <div class="col-lg-8">
-        <div class="card shadow">
-            <div class="card-body">
-                <h1 class="card-title text-center mb-4">Contact Us</h1>
-                <?php if ($msg): ?>
-                    <div class="alert <?php echo $msgClass; ?>" role="alert">
-                        <?php echo $msg; ?>
-                    </div>
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-header bg-white border-bottom py-4 text-center">
+                <h2 class="mb-0 text-primary fw-bold"><i class="bi bi-envelope-paper"></i> پەیوەندیمان پێوە بکە</h2>
+                <p class="text-muted mt-2">هەر پرسیار یان پێشنیارێکت هەیە، لێرەوە بۆمانی بنێرە.</p>
+            </div>
+            <div class="card-body p-5">
+                
+                <?php if ($msg != ''): ?>
+                    <div class="alert <?php echo $msgClass; ?>"><i class="bi bi-info-circle"></i> <?php echo $msg; ?></div>
                 <?php endif; ?>
+
                 <form action="contact.php" method="POST">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" id="name" name="name" required>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">ناوی تەواو <span class="text-danger">*</span></label>
+                            <input type="text" name="name" class="form-control form-control-lg" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">ئیمەیڵ <span class="text-danger">*</span></label>
+                            <input type="email" name="email" class="form-control form-control-lg" required>
+                        </div>
                     </div>
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <label class="form-label fw-bold">بابەت</label>
+                        <input type="text" name="subject" class="form-control form-control-lg">
                     </div>
-                    <div class="mb-3">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" class="form-control" id="subject" name="subject">
+                    <div class="mb-4">
+                        <label class="form-label fw-bold">پەیامەکەت <span class="text-danger">*</span></label>
+                        <textarea name="message" class="form-control" rows="6" required></textarea>
                     </div>
-                    <div class="mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <button type="submit" class="btn btn-primary btn-lg w-100 fw-bold">
+                        <i class="bi bi-send"></i> ناردنی پەیام
+                    </button>
                 </form>
+
             </div>
         </div>
     </div>
