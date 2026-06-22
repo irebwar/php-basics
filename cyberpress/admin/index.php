@@ -15,6 +15,10 @@ require_once 'includes/auth_check.php';
             <a href="manage_posts.php" class="list-group-item list-group-item-action">
                 <i class="bi bi-list-task me-2"></i> بەڕێوەبردنی بابەتەکان
             </a>
+
+            <a href="message.php" class="list-group-item list-group-item-action">
+                <i class="bi bi-envelope-paper me-2"></i> سندوقی پەیامەکان
+            </a>
             <a href="../logout.php" class="list-group-item list-group-item-action">
                 <i class="bi bi-box-arrow-right me-2"></i> چوونەژورەوە
             </a>
